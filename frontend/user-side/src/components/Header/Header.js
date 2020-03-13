@@ -1,9 +1,9 @@
 import React from 'react';
+import bgImg from '../../assets/images/bg_1.jpg';
 
 const Header = () => {
-
     const style = {
-        backgroundImage: 'url(images/bg_1.jpg)'
+        backgroundImage: `url(${bgImg})`
     };
 
     return (
@@ -12,14 +12,14 @@ const Header = () => {
                 <div className="overlay"></div>
                 <div className="container">
                     <div className="row d-md-flex no-gutters slider-text align-items-center justify-content-center">
-                        <div className="col-md-10 d-flex align-items-center ftco-animate">
+                        <div className="col-md-10 d-flex align-items-center"> {/*ftco-animate*/}
                             <div className="text text-center pt-5 mt-md-5">
                                 <p className="mb-4">Find Job, Employment, and Career Opportunities</p>
-                                <h1 className="mb-5">The Eassiest Way to Get Your New Job</h1>
+                                <h1 className="mb-5">The Easiest Way to Get Your New Job</h1>
                                 <div className="ftco-counter ftco-no-pt ftco-no-pb">
                                     <div className="row">
                                         <div
-                                            className="col-md-4 d-flex justify-content-center counter-wrap ftco-animate">
+                                            className="col-md-4 d-flex justify-content-center counter-wrap"> 
                                             <div className="block-18">
                                                 <div className="text d-flex">
                                                     <div className="icon mr-2">
@@ -33,7 +33,7 @@ const Header = () => {
                                             </div>
                                         </div>
                                         <div
-                                            className="col-md-4 d-flex justify-content-center counter-wrap ftco-animate">
+                                            className="col-md-4 d-flex justify-content-center counter-wrap">{/*ftco-animate*/}
                                             <div className="block-18 text-center">
                                                 <div className="text d-flex">
                                                     <div className="icon mr-2">
@@ -47,7 +47,7 @@ const Header = () => {
                                             </div>
                                         </div>
                                         <div
-                                            className="col-md-4 d-flex justify-content-center counter-wrap ftco-animate">
+                                            className="col-md-4 d-flex justify-content-center counter-wrap">{/*ftco-animate*/}
                                             <div className="block-18 text-center">
                                                 <div className="text d-flex">
                                                     <div className="icon mr-2">
@@ -91,7 +91,7 @@ const Header = () => {
                                                                         <div className="icon"><span
                                                                             className="icon-briefcase"></span></div>
                                                                         <input type="text" className="form-control"
-                                                                               placeholder="eg. Garphic. Web Developer"/>
+                                                                               placeholder="eg. Graphic, Web Developer"/>
                                                                     </div>
                                                                 </div>
                                                             </div>
