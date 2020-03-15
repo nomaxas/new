@@ -1,13 +1,14 @@
 import React from 'react';
-import FixedNavbar from '../FixedNavbar/FixedNavbar';
+import Navbar from '../Navbar/Navbar';
 import Header from '../Header/Header';
-
 import './App.css';
 
 function App() {
+ 
   return (
     <div className="App">
-        <FixedNavbar />
+        <Navbar />
+        <Header />
         <Header />
     </div>
   );
