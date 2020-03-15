@@ -16,3 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+/*Reg Not Working*/
+Route::post('register','ApiController@register');
+
+//User
+Route::post('portfolio', 'PortfolioController@create');
+Route::post('update/portfolio/{id}', 'PortfolioController@update');
+Route::get('user/{id}', 'PortfolioController@aboutUser');
