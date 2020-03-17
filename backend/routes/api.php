@@ -18,6 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 /*Reg Not Working*/
 Route::post('register','ApiController@register');
+Route::post('login','ApiController@login');
+Route::get('new_token', 'ApiController@tokenRefresh');
 
 //User
 Route::post('portfolio', 'PortfolioController@create');
