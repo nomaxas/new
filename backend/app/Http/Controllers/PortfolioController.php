@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Portfolio;
 use App\User;
+use App\Message;
+use App\Role;
+use App\Rating;
 use Illuminate\Http\Request;
 
 class PortfolioController extends Controller
@@ -26,17 +29,27 @@ class PortfolioController extends Controller
     /*User INFO*/
     public function aboutUser(User $user, $id) {
         $role_id = User::select('group_id')->where('users.id',$id)->get()[0]->group_id;
-        if ($role_id != 1 && $role_id != 2) {
-            $query = User::select('*', 'users.id as id')->join('portfolios','users.id','=','portfolios.user_id')->where('users.id',$id)->get();
+        $usr = User::select('name', 'email', 'foto', 'location', 'role as group')->join('roles','roles.id','=','group_id')->where('users.id',$id)->get();
+        $portf = Portfolio::select('*')->where('user_id',$id)->get();
+        if ($role_id != 1) {
+            if(!count($portf)) {
+                $portf = ['error' => 'Empty Portfolio'];
+            }
+            $info = [
+                'info' => $usr,
+                'portfolio' => $portf,
+            ];
         } else {
-            $query = User::select('*')->where('users.id',$id)->get();
+            $info = [
+                'info' => $usr,
+            ];
         }
         try {
             $user = auth()->userOrFail();
         } catch(\Tymon\JWTAuth\Exceptions\UserNotDefinedException $e) {
             return response()->json(['error' => $e->getMessage()]);
         }
-        return response()->json($query, 200);
+        return response()->json($info, 200);
     }
     public function update($id, Request $request) {
         try {
