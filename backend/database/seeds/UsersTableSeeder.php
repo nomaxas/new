@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
             'foto' => '',
             'location' => 'Kaunas',
             'password' => Hash::make('admin123'),
-            'role_id' => 1,
+            'group_id' => 1,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
             'foto' => '',
             'location' => 'Kaunas',
             'password' => Hash::make('klientas123'),
-            'role_id' => 2,
+            'group_id' => 1,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -38,7 +38,7 @@ class UsersTableSeeder extends Seeder
             'foto' => '',
             'location' => 'Kaunas',
             'password' => Hash::make('klientas123'),
-            'role_id' => 3,
+            'group_id' => 2,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -48,7 +48,7 @@ class UsersTableSeeder extends Seeder
             'foto' => '',
             'location' => 'Kaunas',
             'password' => Hash::make('klientas123'),
-            'role_id' => 3,
+            'group_id' => 2,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
