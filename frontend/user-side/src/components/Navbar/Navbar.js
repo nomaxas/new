@@ -1,6 +1,8 @@
 import React, {useEffect, useRef} from 'react';
+import {Navbar as NavBar} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({routes}) => {
     
     useEffect(() => {
         return () => {
@@ -8,8 +10,10 @@ const Navbar = () => {
         }
       }, [])
 
-      const navbar = useRef(null);
+      //Uses the navbar reference for its class list
+      const navbar = useRef(null); 
 
+      //Depending on the offset from the top of the page, sets navbar classes for sticky-ness
       const handleScroll = () => {
 
         //sd = $('.js-scroll-wrap');
@@ -45,7 +49,7 @@ const Navbar = () => {
         }
       }
     
-
+    //Reduces the amount of time the scroll event is called
     const debounce = (callback, wait, immediate = false) => {
         let timeout = null 
         
@@ -64,30 +68,28 @@ const Navbar = () => {
     
     window.addEventListener("scroll", debounce(handleScroll))
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" ref={navbar}>
+        <NavBar bg="dark" expand="lg" className="ftco_navbar ftco-navbar-light" id="ftco-navbar" ref={navbar}>
             <div className="container-fluid px-md-4	">
                 <a className="navbar-brand" href="index.html">Skillhunt</a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-                        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <NavBar.Toggle data-toggle="collapse" data-target="#ftco-nav"
+                        aria-controls="ftco-nav">
                     <span className="oi oi-menu"></span> Menu
-                </button>
+                </NavBar.Toggle>
 
-                <div className="collapse navbar-collapse" id="ftco-nav">
+                <NavBar.Collapse id="ftco-nav">
                     <ul className="navbar-nav ml-auto">
-                        <li className="nav-item active"><a href="index.html" className="nav-link">Home</a></li>
-                        <li className="nav-item"><a href="browsejobs.html" className="nav-link">Browse Jobs</a></li>
-                        <li className="nav-item"><a href="candidates.html" className="nav-link">Canditates</a></li>
-                        <li className="nav-item"><a href="blog.html" className="nav-link">Blog</a></li>
-                        <li className="nav-item"><a href="contact.html" className="nav-link">Contact</a></li>
-                        <li className="nav-item cta mr-md-1"><a href="new-post.html" className="nav-link">Post a Job</a>
-                        </li>
-                        <li className="nav-item cta cta-colored"><a href="job-post.html" className="nav-link">Want a
-                            Job</a></li>
 
+                        {routes.map(route => (
+                            <li className={route.classes} key={route.key}>
+                                <Link className="nav-link" to={route.path}>
+                                    {route.name}
+                                </Link>
+                            </li>
+                        ))}
                     </ul>
-                </div>
+                </NavBar.Collapse>
             </div>
-        </nav>
+        </NavBar>
     )
 };
 
