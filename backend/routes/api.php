@@ -27,7 +27,9 @@ Route::post('update/portfolio/{id}', 'PortfolioController@update');
 Route::get('user/{id}', 'PortfolioController@aboutUser');
 
 //Roles
-Route::get('role', 'RoleController@aboutRole'); //Visos rolės
+Route::get('role', 'RoleController@aboutRole'); //Roliu sarašas
+Route::post('add/role', 'RoleController@create'); 
+Route::post('role/user/', 'RoleUserController@store');
 
 //Message
 Route::get('message/{id}', 'MessageController@aboutMessage'); //Išsiųstos
@@ -38,3 +40,5 @@ Route::delete('message/delete/{message}', 'MessageController@destroy');
 Route::get('all/rating', 'RatingController@aboutRating');
 Route::post('rating', 'RatingController@create');
 Route::delete('rating/delete/{rating}', 'RatingController@destroy');
+
+Route::get('/ro', 'RoleUserController@index');

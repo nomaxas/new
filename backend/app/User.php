@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Role;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -17,7 +18,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'foto', 'location', 'group_id', 'username',
+        'name', 'email', 'password', 'foto', 'location', 'role', 'username',
     ];
 
     /**
@@ -44,4 +45,10 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims(){
         return [];
     }
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+   
 }

@@ -13,12 +13,11 @@ class RolesTableSeeder extends Seeder
     public function run()
     {
         DB::table('roles')->insert([    
-        [
-            'role' => 'Client'
-        ],[
-            'role' => 'Freelancer'
-        ]
+            [
+                'role' => 'Client'
+            ],[
+                'role' => 'Freelancer'
+            ]
         ]);
-
     }
 }

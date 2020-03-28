@@ -14,7 +14,7 @@ class CreatePortfoliosTable extends Migration
     public function up()
     {
         Schema::create('portfolios', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('description');
             $table->string('skills');
             $table->string('services');

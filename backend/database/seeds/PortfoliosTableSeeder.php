@@ -20,7 +20,7 @@ class PortfoliosTableSeeder extends Seeder
                 'services' => ucfirst($faker->sentence()),
                 'price_per_hour' => $faker->numberBetween(10,100),
                 'status' => $faker->boolean(),
-                'user_id' => 3,
+                'user_id' => 1,
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now()
             ]);

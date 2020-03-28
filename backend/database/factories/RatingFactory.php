@@ -7,9 +7,9 @@ use Faker\Generator as Faker;
 
 $factory->define(Rating::class, function (Faker $faker) {
     return [
-        'user_id' => factory(\App\User::class)->create(),
+        'user_id' => $faker->biasedNumberBetween($min = 1, $max = 5, $function = 'sqrt'),
         'message' => $faker->sentence($nbWords = 6, $variableNbWords = true) ,
-        'rating' => $faker->biasedNumberBetween($min = 0, $max = 5, $function = 'sqrt'),
-        'profolio_id' => $faker->randomDigit
+        'rating' => $faker->biasedNumberBetween($min = 1, $max = 5, $function = 'sqrt'),
+        'profolio_id' => $faker->biasedNumberBetween($min = 1, $max = 1, $function = 'sqrt'),
     ];
 });

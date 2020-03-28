@@ -14,22 +14,22 @@ class ApiController extends Controller
     /*Registracija NOT WORKING*/
     protected function register(Request $request){
 
-		if($request->input('group_id') != 1 && $request->input('group_id') != 2) {
+		if($request->input('role') != 'Freelancer' && $request->input('role') != 'Client') {
 			return response()->json(['error'=>'Grupė neteisinga!']);
 		} else {
-			$request->validate([
+		$request->validate([
 			'email'=>'required|max:255',
 			'name'=>'required|max:255',
             'password'=>'required|max:255',
             'location' => 'required|max:255',
-            'group_id' => 'required|max:1'
-		]);
+            'role' => 'required|max:255'
+		]);	
 
 		return User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'location' => $request->input('location'),
-            'group_id' => $request->input('group_id'),
+            'role' => $request->input('role'),
             'foto' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Roundel_of_None.svg/600px-Roundel_of_None.svg.png',
             'password' => Hash::make($request->input('password')),
         ]);
@@ -55,5 +55,5 @@ class ApiController extends Controller
 			return response()->json(['error' => $e->getMessage()], 401);
 		}
 	}
-   
+
 }
