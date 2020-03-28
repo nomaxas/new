@@ -28,8 +28,8 @@ Route::get('user/{id}', 'PortfolioController@aboutUser');
 
 //Roles
 Route::get('role', 'RoleController@aboutRole'); //Roliu sarašas
+Route::get('role/user{id}', 'RoleController@aboutRoleUser'); //Roliu user sarašas pagal user id
 Route::post('add/role', 'RoleController@create'); 
-Route::post('role/user/', 'RoleUserController@store');
 
 //Message
 Route::get('message/{id}', 'MessageController@aboutMessage'); //Išsiųstos
